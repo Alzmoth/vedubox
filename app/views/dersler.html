@@ -1,0 +1,76 @@
+<h3>Dersler
+   <small>Ana dersler ve alt kollarını düzenleyin</small>
+</h3>
+
+<style>
+      li,
+      ul {
+          list-style: none;
+          margin: 0;
+          padding-left: 5px;
+          font-size: 18px;
+      }
+  </style>
+<!-- START row-->
+<div class="row">
+   <div class="col-lg-12">
+      <!-- START panel-->
+      <div id="panelDemo13" class="panel panel-default">
+
+         <div class="panel-body">
+            <!-- <div >
+                  <label  class="text-muted">ANA DERS OLUŞTUR</label>
+                  <input  type="text" placeholder="Sayısal" ng-model="anaders" />
+                  <button ng-click="anadersekle(anaders)">Oluştur</button>
+            </div> -->
+            <form class="form-inline" ng-submit="anadersekle(anaders)">
+               <label class="text-muted">ANA DERS OLUŞTUR</label>
+               <div class="form-group mx-sm-3 mb-2">
+                  <label class="sr-only">Sözel</label>
+                  <input type="text" class="form-control" ng-model="anaders" placeholder="Sayısal">
+               </div>
+               <button type="submit" class="btn btn-primary mb-2" >Oluştur</button>
+            </form> <br>
+            <!-- <div class="container">
+
+                  <table class="table table-striped">
+                      <tr ng-repeat="item in model">
+                          <td> {{item.title}} </td>
+                          <td> {{item.subitems}} </td>
+                      
+                      </tr>
+                  </table>
+              </div> -->
+            <accordion close-others="oneAtATime" ng-repeat="item in model">
+               <accordion-group is-open="status.isFirstOpen">
+                  <accordion-heading>
+                     <div>   <a style="position: relative; right: 5px"  class="remove" ng-click="removeanaders()"> x</a>{{item.title}} 
+                         </div>
+                  </accordion-heading>
+
+                  <ul>
+                     <li ng-repeat="subitem in item.subitems" ng-click="dede">
+                           <a style="position: relative; right: 5px;color: brown"  class="remove" ng-click="removeanaders()"> x</a>
+                            {{subitem}} </li>
+                     <div>
+                        <br>
+                        <form name="frm" class="form-inline" ng-submit = "altdersekle(item,dersss)">
+                           <div class="form-group mx-sm-3 mb-2">
+
+                              <input required type="text" ng-model="dersss" class="form-control" placeholder="Matematik">
+                           </div>
+                           <button ng-disabled="frm.$invalid" class="btn btn-primary mb-2">Ekle</button>
+                        </form>
+
+                     </div>
+                  </ul>
+               </accordion-group>
+
+            </accordion>
+         </div>
+      </div>
+      <!-- END panel-->
+   </div>
+</div>
+
+<!-- END row-->

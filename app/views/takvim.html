@@ -1,0 +1,145 @@
+<div ng-controller="CalendarController" class="calendar-app">
+   <div class="row" ng-controller="TakvimController" >
+      <div class="col-lg-6 ">
+         <!-- START panel-->
+         <div class="panel panel-default">
+            <div class="panel-heading">
+               <h3> Yeni Ders Oluştur</h3>
+            </div>
+            <div class="panel-body">
+               <form action="">
+                  <div class="form-group">
+                     <label>Başlık</label>
+                     <div><input type="text" required="required" class="form-control" /></div>
+                  </div>
+                  <div class="form-group">
+                     <label>Açıklama</label>
+                     <div><textarea type="text" class="form-control"></textarea></div>
+                  </div>
+                  <div class="form-group">
+                     <label>Ders tarihini seç</label>
+                     <div>
+                        <div ng-controller="DatepickerDemoCtrl">
+                           <div class="row">
+                              <div class="col-md-12">
+                                 <p class="input-group">
+                                    <input type="text" datepicker-popup="dd.MM.yyyy" ng-model="dt" is-open="opened"
+                                       min-date="minDate" datepicker-options="dateOptions" ng-required="true"
+                                       close-text="Close" class="form-control" />
+                                    <span class="input-group-btn">
+                                       <button type="button" ng-click="open($event)" class="btn btn-default">
+                                          <em class="fa fa-calendar"></em>
+                                       </button>
+                                    </span>
+                                 </p>
+                                 <div ng-controller="TimepickerDemoCtrl" class="col-md-12">
+                                    <timepicker ng-model="mytime" ng-change="changed()" hour-step="hstep"
+                                       minute-step="mstep" show-meridian="ismeridian"></timepicker>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label>Dersi seç</label>
+                     <div class="row">
+                        <div class="col-md-12">
+                           <select chosen="" class="chosen-select input-md">
+                              <optgroup label="Alaskan/Hawaiian Time Zone">
+                                 <option value="AK">Alaska</option>
+                                 <option value="HI">Hawaii</option>
+                              </optgroup>
+                              <optgroup label="Pacific Time Zone">
+                                 <option value="CA">California</option>
+                                 <option value="NV">Nevada</option>
+                                 <option value="OR">Oregon</option>
+                                 <option value="WA">Washington</option>
+                              </optgroup>
+                              <optgroup label="Mountain Time Zone">
+                                 <option value="AZ">Arizona</option>
+                                 <option value="CO">Colorado</option>
+                                 <option value="ID">Idaho</option>
+                                 <option value="MT">Montana</option>
+                                 <option value="NE">Nebraska</option>
+                                 <option value="NM">New Mexico</option>
+                                 <option value="ND">North Dakota</option>
+                                 <option value="UT">Utah</option>
+                                 <option value="WY">Wyoming</option>
+                              </optgroup>
+                              <optgroup label="Central Time Zone">
+                                 <option value="AL">Alabama</option>
+                                 <option value="AR">Arkansas</option>
+                                 <option value="IL">Illinois</option>
+                                 <option value="IA">Iowa</option>
+                                 <option value="KS">Kansas</option>
+                                 <option value="KY">Kentucky</option>
+                                 <option value="LA">Louisiana</option>
+                                 <option value="MN">Minnesota</option>
+                                 <option value="MS">Mississippi</option>
+                                 <option value="MO">Missouri</option>
+                                 <option value="OK">Oklahoma</option>
+                                 <option value="SD">South Dakota</option>
+                                 <option value="TX">Texas</option>
+                                 <option value="TN">Tennessee</option>
+                                 <option value="WI">Wisconsin</option>
+                              </optgroup>
+                              <optgroup label="Eastern Time Zone">
+                                 <option value="CT">Connecticut</option>
+                                 <option value="DE">Delaware</option>
+                                 <option value="FL">Florida</option>
+                                 <option value="GA">Georgia</option>
+                                 <option value="IN">Indiana</option>
+                                 <option value="ME">Maine</option>
+                                 <option value="MD">Maryland</option>
+                                 <option value="MA">Massachusetts</option>
+                                 <option value="MI">Michigan</option>
+                                 <option value="NH">New Hampshire</option>
+                                 <option value="NJ">New Jersey</option>
+                                 <option value="NY">New York</option>
+                                 <option value="NC">North Carolina</option>
+                                 <option value="OH">Ohio</option>
+                                 <option value="PA">Pennsylvania</option>
+                                 <option value="RI">Rhode Island</option>
+                                 <option value="SC">South Carolina</option>
+                                 <option value="VT">Vermont</option>
+                                 <option value="VA">Virginia</option>
+                                 <option value="WV">West Virginia</option>
+                              </optgroup>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label>Derse Katılacakları seç</label>
+                     <div class="row">
+                        <div class="col-sm-10">
+                           <select multiple="" chosen="" ng-model="state" ng-options="s for s in states"
+                              class="chosen-select input-md"></select>
+                        </div></div>
+                  
+                  </div>
+                  <button class="btn btn-info">Kaydet</button>
+               </form>
+            </div>
+
+
+         </div>
+         <!-- END panel-->
+      </div>
+      <div class="col-lg-6 ">
+         <!-- START panel-->
+         <div class="panel panel-default">
+            <div class="panel-body">
+               <!-- START calendar-->
+               <div id="calendar"></div>
+               <!-- END calendar-->
+            </div>
+         </div>
+         <!-- END panel-->
+      </div>
+
+   </div>
+   <!-- END row-->
+</div>

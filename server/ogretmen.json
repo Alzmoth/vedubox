@@ -1,0 +1,24 @@
+[
+  {
+    "text": "Menuler",
+    "heading": "true"
+
+  },
+  {
+    "text": "Ana Menu",
+    "sref": "app.anamenu",
+    "icon": "icon-notebook"
+   
+  },
+  {
+    "text": "takvim",
+    "sref": "app.takvim",
+    "icon": "icon-note"
+  },
+  {
+    "text": "Raporlar",
+    "sref": "app.raporO",
+    "icon": "icon-speedometer "
+  }
+
+]

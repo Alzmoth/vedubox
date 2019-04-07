@@ -1,0 +1,27 @@
+[
+  {
+    "text": "Menuler",
+    "heading": "true"
+
+  },
+  {
+    "text": "Raporlar",
+    "sref": "#",
+    "icon": "icon-graph",
+    "submenu":[
+      {"text": "Derse Katılım Raporları",       "sref": "app.admin" },
+      {"text": "Ogretmen Raporları", "sref": "app.notifications"}
+    ]
+  },
+  {
+    "text": "Dersler",
+    "sref": "app.dersler",
+    "icon": "icon-note"
+  },
+  {
+    "text": "Kullanıcılar",
+    "sref": "app.users",
+    "icon": "icon-users "
+  }
+
+]
