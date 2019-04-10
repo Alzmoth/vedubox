@@ -5,16 +5,8 @@
 <div class="panel panel-default">
 
    <div class="panel-body">
-         <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
-      <form  ng-controller="icerikController"  class="form-horizontal">
-         <div ng-if="icer=='1'">
-               <label class="col-sm-2 control-label">Yeni İçerik Oluşturmak için tıklayın</label>
-               <button id="editorac" class="btn btn-info" ng-click="icerikac()" > Aç</button>
-         </div>
-         <div ng-if="icer=='2'">
-               <label class="col-sm-2 control-label">içerik oluşturmayı kapat</label>
-               <button id="editorac" class="btn btn-danger" ng-click="icerikkapat()" > Kapat</button>
-         </div>
+      <form  ng-controller="OicerikController"  class="form-horizontal">
+  
         
       
          <fieldset ng-if="icer=='2'"> <br>
@@ -47,33 +39,26 @@
             </div>
          </fieldset>
     
-          <hr>
+      
          <div class="table-responsive">
                <table class="table table-striped table-bordered table-hover">
                 
                   <tbody>
                      <tr ng-repeat="item in modelicerik | orderBy:'-ID'">
-                        <td>
-                           <div >
-                            
-                             <span>{{item.ID}} </span>
-                             
-                           </div>
-                        </td>
+                  
                         <td>
                            <div>
                               <div class="media-body">
-                                 <div class="pull-right btn btn-danger btn-sm" ng-click="sil(item.ID,item)">Sil</div>
-                                 <!-- <h4 class="media-heading">İçeriği oluşturan : <b>{{item.OlusturanKisi}}</b>  </h4> -->
+                             
+                                 <h4 class="media-heading">İçeriği Oluşturan : <b>{{item.OlusturanKisi}}</b>  </h4>
                                  <small class="text-muted">Tarih :  {{item.Tarih}} </small>
 
-                                 <div class="col-sm-11">
+                                 <div class="col-sm-12">
                                        <p ng-bind-html-unsafe="thisCanBeusedInsideNgBindHtml"> </p> 
                                        <label  ng-wig="item.Icerik" > {{item.Icerik}} </label>
                                     </div> 
                               </div>
-                              <br>
-                              <button class="btn btn-info btn-m" ng-click="guncelle(item)" >Güncelle</button>
+                            
                            </div>
                         </td>
                      </tr>

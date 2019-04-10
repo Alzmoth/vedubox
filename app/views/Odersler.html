@@ -1,0 +1,62 @@
+<h3>Dersler
+   <small>Hocaların oluşturduğu dersler</small>
+</h3>
+
+<style>
+   li,
+   ul {
+      list-style: none;
+      margin: 0;
+      padding-left: 5px;
+      font-size: 18px;
+   }
+</style>
+<!-- START row-->
+<div class="row">
+   <div class="col-lg-12">
+      <!-- START panel-->
+      <div id="panelDemo13" class="panel panel-default" ng-controller="ODerslerController">
+
+
+         <div class="panel-body">
+               <div  class="panel-body">
+                     
+                
+        <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+            <accordion close-others="oneAtATime" ng-repeat="item in model | orderBy:'-tarih'">
+               <accordion-group is-open="status.isFirstOpen">
+                  <accordion-heading>
+                     <div> Ders Başlığı : <a style=" color: rgb(212, 77, 77)"> {{item.OBaslik}}  </a> Oluşturan Öğretmen : <a style=" color: rgb(212, 77, 77)"> {{item.OlusturanOgretmen}}  </a>
+                     </div>
+                  </accordion-heading>
+                  <ul>
+                     <li>
+                           <label for="exampleFormControlSelect1"> Ders Açıklaması : {{item.OAciklama}} </label>
+                      </li>
+                      <li>
+                           <label for="exampleFormControlSelect1"> Ders  : {{item.OAnaders}} > {{item.ODerss}} </label>
+                      </li>
+                      <li>
+                           <label for="exampleFormControlSelect1"> Tarih : {{item.OTarih}}-{{item.OSaat}} Ortalama Süre : {{item.ODersSuresi}} Dk </label>
+                      </li>
+
+                     <div>
+                        <br>
+                        <button type="button" class="btn btn-default btn-warning " ng-model="toaster.type" value="success" ng-click="katil(item,0)">Katılma</button>
+                        <button type="button" class="btn btn-default btn-success " ng-model="toaster.type" value="warning" ng-click="katil(item,1)">Derse Katıl</button>
+                      
+
+
+
+                     </div>
+                  </ul>
+               </accordion-group>
+
+            </accordion>
+         </div>
+      </div>
+      <!-- END panel-->
+   </div>
+</div>
+
+<!-- END row-->
