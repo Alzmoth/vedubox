@@ -428,7 +428,7 @@ App.controller('ODerslerController', ['$scope', '$http','toaster', function ($sc
   var ders
   $http.post('http://localhost:55705/oderscek',{KOgrenci:$scope.globals.UserName}).then(function (response) {
     ders= response.data
-    console.log(ders)
+   // console.log(ders)
     ders.forEach(element => {
      
     url='http://localhost:55705/api/ODers/'+element.ODersID
@@ -440,7 +440,7 @@ App.controller('ODerslerController', ['$scope', '$http','toaster', function ($sc
       $scope.model.push(dersayrinti)
     })
    });
-   console.log($scope.model)
+  // console.log($scope.model)
   })
 $scope.toaster = {
       type:  'success',
@@ -1286,7 +1286,7 @@ App.controller('LoginFormController', ['$scope', '$http', '$state', '$cookieStor
           gelen.role = "Admin";
           
           $cookieStore.put('user', gelen)
-          $state.go('app.admin');
+          $state.go('app.dersler');
         }
         else if (gelen.RoleID == 2) {
           gelen.role = "Ogretmen";
@@ -2320,14 +2320,14 @@ App.controller('FlotChartController', ['$scope', '$window', '$http', function ($
                   else
                   kararsiz++;
                 }
-                console.log(katilan,katilmayan,kararsiz)
+              //  console.log(katilan,katilmayan,kararsiz)
     
                 $scope.data[0].data.push(element.OBaslik,katilan)
                 $scope.data[1].data.push(element.OBaslik,katilmayan)
                 $scope.data[2].data.push(element.OBaslik,kararsiz)
-                console.log($scope.data)
+              //  console.log($scope.data)
                 $scope.data[0].data[1] = 3
-                console.log($scope.data[1].data[1])
+              //  console.log($scope.data[1].data[1])
                 sayac++;
                 
               })
@@ -3055,10 +3055,10 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$locatio
       console.log($user, "alla alla")
       if ($user.RoleID == 1) {
         var menuJson = 'server/admin.json'
-        console.log("hellomada")
+      
       } else if ($user.RoleID == 2) {
         var menuJson = 'server/ogretmen.json'
-        console.log("hellodafa")
+      
       } else {
         var menuJson = 'server/ogrenci.json'
       }
@@ -5455,7 +5455,7 @@ App.factory('colors', ['APP_COLORS', function (colors) {
 }]);
 App.factory('timee', function (timee) {
 
-  console.log("hello")
+)
   return timee
   
 
