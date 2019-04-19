@@ -428,7 +428,7 @@ App.controller('ODerslerController', ['$scope', '$http','toaster', function ($sc
   var ders
   $http.post('http://localhost:55705/oderscek',{KOgrenci:$scope.globals.UserName}).then(function (response) {
     ders= response.data
-   // console.log(ders)
+    console.log(ders)
     ders.forEach(element => {
      
     url='http://localhost:55705/api/ODers/'+element.ODersID
@@ -440,7 +440,7 @@ App.controller('ODerslerController', ['$scope', '$http','toaster', function ($sc
       $scope.model.push(dersayrinti)
     })
    });
-  // console.log($scope.model)
+   console.log($scope.model)
   })
 $scope.toaster = {
       type:  'success',
@@ -5455,7 +5455,7 @@ App.factory('colors', ['APP_COLORS', function (colors) {
 }]);
 App.factory('timee', function (timee) {
 
-)
+
   return timee
   
 
