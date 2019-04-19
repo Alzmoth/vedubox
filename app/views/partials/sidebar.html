@@ -29,6 +29,7 @@
          <!-- END user info-->
          <!-- Iterates over all sidebar items-->
          <li ng-class="getMenuItemPropClasses(item)" ng-repeat="item in menuItems" ng-include="'sidebar-renderer.html'" ng-click="toggleCollapse($index)"></li>
+         
       </ul>
       <!-- END sidebar nav-->
    </nav>

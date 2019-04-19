@@ -9,8 +9,8 @@
     "sref": "#",
     "icon": "icon-graph",
     "submenu":[
-      {"text": "Derse Katılım Raporları",       "sref": "app.admin" },
-      {"text": "Ogretmen Raporları", "sref": "app.notifications"}
+      {"text": "Derse Katılım Raporları",  "sref": "app.admin" },
+      {"text": "Ogretmen Raporları", "sref": "app.oraporlar"}
     ]
   },
   {
@@ -22,6 +22,11 @@
     "text": "Kullanıcılar",
     "sref": "app.users",
     "icon": "icon-users "
+  },
+  {
+    "text": "Çıkış",
+    "sref": "app.cikis",
+    "icon": "icon-logout "
   }
 
 ]

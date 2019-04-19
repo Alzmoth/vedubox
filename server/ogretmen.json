@@ -19,6 +19,12 @@
     "text": "Raporlar",
     "sref": "app.raporO",
     "icon": "icon-speedometer "
+  },
+  {
+    "text": "Çıkış",
+    "sref": "app.cikis",
+    "icon": "icon-logout "
   }
+
 
 ]

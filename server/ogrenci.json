@@ -14,6 +14,13 @@
     "text": "Paylaşılanlar",
     "sref": "app.Oicerikler",
     "icon": "icon-note"
+  },
+  {
+    "text": "Çıkış",
+    "sref": "app.cikis",
+    "icon": "icon-logout "
   }
+
+  
 
 ]
