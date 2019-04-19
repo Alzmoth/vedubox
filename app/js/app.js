@@ -261,15 +261,6 @@ App.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$com
       };
     }
 
-  }]).config(['$translateProvider', function ($translateProvider) {
-
-    $translateProvider.useStaticFilesLoader({
-      prefix: 'app/i18n/',
-      suffix: '.json'
-    });
-    $translateProvider.preferredLanguage('en');
-    $translateProvider.useLocalStorage();
-
   }]).config(['cfpLoadingBarProvider', function (cfpLoadingBarProvider) {
     cfpLoadingBarProvider.includeBar = true;
     cfpLoadingBarProvider.includeSpinner = false;
