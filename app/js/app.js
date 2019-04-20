@@ -426,12 +426,12 @@ App.controller('ODerslerController', ['$scope', '$http', 'toaster', function ($s
 
   // console.log($scope.globals,"hahahaha")
   var ders
-  $http.post('http://localhost:55705/oderscek', { KOgrenci: $scope.globals.UserName }).then(function (response) {
+  $http.post('https://webapplication420190420024636.azurewebsites.net/oderscek', { KOgrenci: $scope.globals.UserName }).then(function (response) {
     ders = response.data
     console.log(ders)
     ders.forEach(element => {
 
-      url = 'http://localhost:55705/api/ODers/' + element.ODersID
+      url = 'https://webapplication420190420024636.azurewebsites.net/api/ODers/' + element.ODersID
 
       $http.get(url).then(function (response) {
         var dersayrinti = response.data
@@ -455,7 +455,7 @@ App.controller('ODerslerController', ['$scope', '$http', 'toaster', function ($s
   toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
 
   $scope.katil = function (item, item2) {
-    url = 'http://localhost:55705/api/KOgrenciler/' + item.KDersID
+    url = 'https://webapplication420190420024636.azurewebsites.net/api/KOgrenciler/' + item.KDersID
     console.log(item)
     $http.put(url, { KDersID: item.KDersID, ODersID: item.ODersID, KOgrenci: $scope.globals.UserName, KDersBaslik: item.OBaslik, KYoklama: item2 })
       .then(function (response) {
@@ -488,7 +488,7 @@ App.controller('OicerikController', ['$scope', '$http', 'toaster', function ($sc
 
   $scope.modelicerik = [];
 
-  var url = 'http://localhost:55705/api/icerikler'
+  var url = 'https://webapplication420190420024636.azurewebsites.net/api/icerikler'
 
   $http.get(url).success(function (response) {
     $scope.modelicerik = response;
@@ -521,7 +521,7 @@ App.controller('OicerikController', ['$scope', '$http', 'toaster', function ($sc
 
   $scope.onSubmit = function (item) {
 
-    $http.post('http://localhost:55705/api/icerikler', {
+    $http.post('https://webapplication420190420024636.azurewebsites.net/api/icerikler', {
       Icerik: item,
       Tarih: today,
       OlusturanKisi: $scope.globals.UserName
@@ -538,7 +538,7 @@ App.controller('OicerikController', ['$scope', '$http', 'toaster', function ($sc
     });
 
   }
-  var url = 'http://localhost:55705/api/icerikler/'
+  var url = 'https://webapplication420190420024636.azurewebsites.net/api/icerikler/'
   $scope.sil = function (id, index) {
 
     var removeindex = $scope.modelicerik.indexOf(index);
@@ -646,7 +646,7 @@ App.controller('TakvimController', ['$scope', '$http', 'toaster', function ($sco
   var tumogrenciler
   $scope.doldur = function () {
 
-    $http.post('http://localhost:55705/ogrencicek/', { RoleID: 3 }).then(function (response) { //ogrenciler tam degil
+    $http.post('https://webapplication420190420024636.azurewebsites.net/ogrencicek/', { RoleID: 3 }).then(function (response) { //ogrenciler tam degil
 
       tumogrenciler = response.data
 
@@ -657,7 +657,7 @@ App.controller('TakvimController', ['$scope', '$http', 'toaster', function ($sco
     })
   }
 
-  $http.get('http://localhost:55705/api/Dersler').then(function (response) { // dersler
+  $http.get('https://webapplication420190420024636.azurewebsites.net/api/Dersler').then(function (response) { // dersler
     var dersler = response.data
     $scope.deneme = dersler
 
@@ -701,7 +701,7 @@ App.controller('TakvimController', ['$scope', '$http', 'toaster', function ($sco
       "OSaat": saat,
       "ODersSuresi": $scope.dersSuresi,
     }
-    var url = 'http://localhost:55705/api/ODers'
+    var url = 'https://webapplication420190420024636.azurewebsites.net/api/ODers'
     var gelen;
     $scope.toaster = {
       type: 'success',
@@ -719,7 +719,7 @@ App.controller('TakvimController', ['$scope', '$http', 'toaster', function ($sco
       console.log(gelen)
       // ogrencilerin kayıt edilmesi
       $scope.dersOgrenci.forEach(element => {
-        $http.post('http://localhost:55705/api/KOgrenciler', { ODersID: gelen.ODersID, KOgrenci: element, KDersBaslik: gelen.OBaslik })
+        $http.post('https://webapplication420190420024636.azurewebsites.net/api/KOgrenciler', { ODersID: gelen.ODersID, KOgrenci: element, KDersBaslik: gelen.OBaslik })
           .success(function (response) {
             gelen = response;
             console.log(gelen)
@@ -910,7 +910,7 @@ App.controller('TakvimController', ['$scope', '$http', 'toaster', function ($sco
       borderColor: '#f39c12' //yellow
     }];
 
-    $http.get('http://localhost:55705/api/ODers').then(function (response) {
+    $http.get('https://webapplication420190420024636.azurewebsites.net/api/ODers').then(function (response) {
       'use strict'
       data = response.data;
 
@@ -963,7 +963,7 @@ App.controller('icerikController', ['$scope', '$http', 'toaster', function ($sco
 
   $scope.modelicerik = [];
 
-  var url = 'http://localhost:55705/api/icerikler/deneme1'
+  var url = 'https://webapplication420190420024636.azurewebsites.net/api/icerikler/deneme1'
 
   $http.post(url, { OlusturanKisi: $scope.globals.UserName }).success(function (response) {
     $scope.modelicerik = response;
@@ -1015,7 +1015,7 @@ App.controller('icerikController', ['$scope', '$http', 'toaster', function ($sco
   $scope.onSubmit = function (item) {
 
 
-    $http.post('http://localhost:55705/api/icerikler', {
+    $http.post('https://webapplication420190420024636.azurewebsites.net/api/icerikler', {
       Icerik: item,
       Tarih: today,
       OlusturanKisi: $scope.globals.UserName
@@ -1034,7 +1034,7 @@ App.controller('icerikController', ['$scope', '$http', 'toaster', function ($sco
     });
 
   }
-  var url = 'http://localhost:55705/api/icerikler/'
+  var url = 'https://webapplication420190420024636.azurewebsites.net/api/icerikler/'
   $scope.sil = function (id, index) {
 
     var removeindex = $scope.modelicerik.indexOf(index);
@@ -1101,7 +1101,7 @@ App.controller('UsersController', ['$scope', '$http', '$state', 'toaster', funct
   };
   toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
 
-  $http.get('http://localhost:55705/api/User').then(function (response) {
+  $http.get('https://webapplication420190420024636.azurewebsites.net/api/User').then(function (response) {
     console.log(response)
     $scope.model = response.data
 
@@ -1117,7 +1117,7 @@ App.controller('UsersController', ['$scope', '$http', '$state', 'toaster', funct
     var removeindex = $scope.model.indexOf(index);
     $scope.model.splice(removeindex, 1)
 
-    var url = 'http://localhost:55705/api/User/' + id
+    var url = 'https://webapplication420190420024636.azurewebsites.net/api/User/' + id
     $http.delete(url)
       .then(function (response) {
         var gelen = response.data;
@@ -1135,7 +1135,7 @@ App.controller('UsersController', ['$scope', '$http', '$state', 'toaster', funct
   $scope.onSubmit = function () {
     var data = JSON.stringify($scope.user)
     console.log(data)
-    var url = 'http://localhost:55705/api/User/' + $scope.user.UserID
+    var url = 'https://webapplication420190420024636.azurewebsites.net/api/User/' + $scope.user.UserID
 
     if ($scope.user.UserID) {
 
@@ -1158,7 +1158,7 @@ App.controller('UsersController', ['$scope', '$http', '$state', 'toaster', funct
         });
 
     } else {
-      $http.post('http://localhost:55705/api/User', {
+      $http.post('https://webapplication420190420024636.azurewebsites.net/api/User', {
         UserName: $scope.user.UserName,
         Password: $scope.user.Password, Email: $scope.user.Email,
         FullName: $scope.user.FullName, RoleID: $scope.user.RoleID
@@ -1192,14 +1192,14 @@ App.controller('AdminDerslerController', ['$scope', '$http', 'toaster', function
   $scope.model = [];
 
 
-  $http.get('http://localhost:55705/api/Anadersler').then(function (response) {
+  $http.get('https://webapplication420190420024636.azurewebsites.net/api/Anadersler').then(function (response) {
     var anadersler = response.data
     anadersler.forEach(element => {
       $scope.model.push({ title: element.Anaders, subitems: [] })
 
     });
 
-    $http.get('http://localhost:55705/api/Dersler').then(function (response) {
+    $http.get('https://webapplication420190420024636.azurewebsites.net/api/Dersler').then(function (response) {
       var dersler = response.data
 
       dersler.forEach(ders => {
@@ -1230,7 +1230,7 @@ App.controller('AdminDerslerController', ['$scope', '$http', 'toaster', function
 
   $scope.anadersekle = function (item) {
 
-    $http.post('http://localhost:55705/api/Anadersler', { Anaders: item })
+    $http.post('https://webapplication420190420024636.azurewebsites.net/api/Anadersler', { Anaders: item })
       .then(function (response) {
 
         if (response) {
@@ -1247,7 +1247,7 @@ App.controller('AdminDerslerController', ['$scope', '$http', 'toaster', function
 
 
     console.log(item, "burdayiz", item2)
-    $http.post('http://localhost:55705/api/Dersler', { Anaders: item.title, Ders: item2 })
+    $http.post('https://webapplication420190420024636.azurewebsites.net/api/Dersler', { Anaders: item.title, Ders: item2 })
       .then(function (response) {
         console.log("peki bu geldi mi")
         if (response) {
@@ -1277,7 +1277,7 @@ App.controller('LoginFormController', ['$scope', '$http', '$state', '$cookieStor
     $scope.authMsg = '';
 
     $http
-      .post('http://localhost:55705/api/User', { UserName: $scope.account.UserName, password: $scope.account.password })
+      .post('https://webapplication420190420024636.azurewebsites.net/api/User', { UserName: $scope.account.UserName, password: $scope.account.password })
       .then(function (response) {
         var gelen = response.data;
 
@@ -1331,7 +1331,7 @@ App.controller('RegisterFormController', ['$scope', '$http', '$state', function 
     $scope.authMsg = '';
 
     $http
-      .post('http://localhost:55705/api/User', { UserName: $scope.account.email, password: $scope.account.password })
+      .post('https://webapplication420190420024636.azurewebsites.net/api/User', { UserName: $scope.account.email, password: $scope.account.password })
       .then(function (response) {
         // assumes if ok, response is an object with some data, if not, a string with error
         // customize according to your api
@@ -1835,7 +1835,7 @@ App.controller('FormDemoCtrl', function ($scope) {
   $scope.states = [
 
   ];
-  $http.get('http://localhost:55705/api/Dersler').then(function (response) {
+  $http.get('https://webapplication420190420024636.azurewebsites.net/api/Dersler').then(function (response) {
     var dersler = response.data
 
 
@@ -2233,7 +2233,7 @@ App.controller('FlotChartController', ['$scope', '$window', '$http', function ($
 
      if(url=='ogretmen'){
       $http({
-        url: 'http://localhost:55705/oraporcek',
+        url: 'https://webapplication420190420024636.azurewebsites.net/oraporcek',
         data: { OlusturanOgretmen: $scope.globals.UserName },
         cache: false,
         method: method
@@ -2246,7 +2246,7 @@ App.controller('FlotChartController', ['$scope', '$window', '$http', function ($
           console.log(element, "bu")
           let katilan = 0, katilmayan = 0, kararsiz = 0;
           $http({
-            url: 'http://localhost:55705/roderscek',
+            url: 'https://webapplication420190420024636.azurewebsites.net/roderscek',
             data: { ODersID: element.ODersID },
             cache: false,
             method: method
@@ -2274,14 +2274,14 @@ App.controller('FlotChartController', ['$scope', '$window', '$http', function ($
             sayac++;
  
           })
-
+          $.plot(self.element, $scope.data, option);
         })
 
         console.log($scope.data, "dataorj")
 
         console.log($scope.data2, "data2")
         if (callback) callback();
-        $.plot(self.element, $scope.data2, option);
+        
 
       }).error(function () {
         $.error('Bad chart request.');
@@ -2291,7 +2291,7 @@ App.controller('FlotChartController', ['$scope', '$window', '$http', function ($
       //   if(url=='ogretmen'){
 
 
-      // $http.post('http://localhost:55705/oraporcek', { OlusturanOgretmen: $scope.globals.UserName })
+      // $http.post('https://webapplication420190420024636.azurewebsites.net/oraporcek', { OlusturanOgretmen: $scope.globals.UserName })
       //   .then(function (response) {
       //     $scope.data = [{
       //       label: "Katilanlar",
@@ -2319,7 +2319,7 @@ App.controller('FlotChartController', ['$scope', '$window', '$http', function ($
       //     gelen.forEach(element => {
       //       console.log(element, "bu")
       //       let katilan = 0, katilmayan = 0, kararsiz = 0;
-      //       $http.post('http://localhost:55705/roderscek', { ODersID: element.ODersID })
+      //       $http.post('https://webapplication420190420024636.azurewebsites.net/roderscek', { ODersID: element.ODersID })
       //         .then(function (response) {
       //           var gelen2 = response.data;
       //           console.log(gelen2)
@@ -2359,7 +2359,7 @@ App.controller('FlotChartController', ['$scope', '$window', '$http', function ($
          
     
         $http
-        .post('http://localhost:55705/oraporcek', { OlusturanOgretmen: $scope.globals.UserName})
+        .post('https://webapplication420190420024636.azurewebsites.net/oraporcek', { OlusturanOgretmen: $scope.globals.UserName})
             .then(function (response) {
               $scope.data = [{
                 label:"ogretmen",
@@ -2381,7 +2381,7 @@ App.controller('FlotChartController', ['$scope', '$window', '$http', function ($
               gelen.forEach(element => {
                 console.log(element,"bu")
                 let katilan=0, katilmayan=0,kararsiz=0;
-                $http.post('http://localhost:55705/roderscek', { ODersID: element.ODersID})
+                $http.post('https://webapplication420190420024636.azurewebsites.net/roderscek', { ODersID: element.ODersID})
                 .then(function (response) {
                   var gelen2=response.data;
                   console.log(gelen2)
@@ -2419,7 +2419,7 @@ App.controller('FlotChartController', ['$scope', '$window', '$http', function ($
          
     
           $http
-          .post('http://localhost:55705/oraporcek', { OlusturanOgretmen: $scope.globals.UserName})
+          .post('https://webapplication420190420024636.azurewebsites.net/oraporcek', { OlusturanOgretmen: $scope.globals.UserName})
               .then(function (response) {
                 $scope.data = [{
                   label:"Katilanlar",
@@ -2447,7 +2447,7 @@ App.controller('FlotChartController', ['$scope', '$window', '$http', function ($
                 gelen.forEach(element => {
                   console.log(element,"bu")
                   let katilan=0, katilmayan=0,kararsiz=0;
-                  $http.post('http://localhost:55705/roderscek', { ODersID: element.ODersID})
+                  $http.post('https://webapplication420190420024636.azurewebsites.net/roderscek', { ODersID: element.ODersID})
                   .then(function (response) {
                     var gelen2=response.data;
                     console.log(gelen2)
