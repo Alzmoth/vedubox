@@ -7,7 +7,7 @@
          </a>
       </div>
       <div class="panel-body">
-         <p class="text-center pv">SIGN IN TO CONTINUE.</p>
+         <p class="text-center pv"></p>
          <form role="form" ng-submit="login()" validate-form="" novalidate="" class="mb-lg">
             <div class="form-group has-feedback">
                <input id="exampleInputEmail1" type="text" placeholder="Kullanıcı adını giriniz" autocomplete="off" ng-model="account.UserName" required="required" class="form-control" />
@@ -23,13 +23,12 @@
                      <input type="checkbox" value="" name="remember" ng-model="account.remember" />
                      <span class="fa fa-check"></span>Remember Me</label>
                </div>
-               <div class="pull-right"><a ui-sref="page.recover" class="text-muted">Forgot your password?</a>
-               </div>
+           
             </div>
-            <button type="submit" class="btn btn-block btn-primary mt-lg">Login</button>
+            <button type="submit" class="btn btn-block btn-primary mt-lg">Giriş</button>
          </form>
          <div ng-show="authMsg" class="alert alert-danger text-center">{{authMsg}}</div>
-         <p class="pt-lg text-center">Need to Signup?</p><a ui-sref="page.register" class="btn btn-block btn-default">Register Now</a>
+        
       </div>
    </div>
    <!-- END panel-->
