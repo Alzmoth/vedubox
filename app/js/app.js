@@ -14,18 +14,18 @@ if (typeof $ === 'undefined') { throw new Error('This application\'s JavaScript 
 // APP START
 // ----------------------------------- 
 
-var App = angular.module('angle', ['ngRoute', 'ngAnimate', 'ngStorage', 'ngCookies','pascalprecht.translate', 'ui.bootstrap', 'ui.router', 'oc.lazyLoad', 'cfp.loadingBar'])
+var App = angular.module('angle', ['ngRoute', 'ngAnimate', 'ngStorage', 'ngCookies', 'pascalprecht.translate', 'ui.bootstrap', 'ui.router', 'oc.lazyLoad', 'cfp.loadingBar'])
   .run(["$rootScope", "$state", "$stateParams", '$window', '$templateCache', '$cookieStore', function ($rootScope, $state, $stateParams, $window, $templateCache, $cookieStore) {
 
-  
+
     // Set reference to access them from any scope
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
     $rootScope.$storage = $window.localStorage;
     $rootScope.globals = $cookieStore.get('user') || {};
     //if($rootScope.globals
- 
-    $rootScope.user=$rootScope.globals
+
+    $rootScope.user = $rootScope.globals
     if ($rootScope.globals.RoleID == 1) {
       $state.go('app.admin')
 
@@ -35,7 +35,7 @@ var App = angular.module('angle', ['ngRoute', 'ngAnimate', 'ngStorage', 'ngCooki
     } else if ($rootScope.globals.RoleID == 3) {
       $state.go('app.ogrenci')
 
-    } 
+    }
     // Uncomment this to disables template cache
     /*$rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
         if (typeof(toState) !== 'undefined'){
@@ -117,7 +117,7 @@ App.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$com
         title: 'Admin',
         templateUrl: basepath('admin.html'),
         controller: 'NullController',
-        resolve: resolveFor('flot-chart','flot-chart-plugins','toaster')
+        resolve: resolveFor('flot-chart', 'flot-chart-plugins', 'toaster')
       })
       .state('app.ogretmen', {
         url: '/ogretmen',
@@ -150,31 +150,31 @@ App.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$com
         title: 'Raporlar',
         templateUrl: basepath('oraporlar.html'),
         controller: 'NullController',
-        resolve: resolveFor('flot-chart','flot-chart-plugins','toaster')
+        resolve: resolveFor('flot-chart', 'flot-chart-plugins', 'toaster')
       })
-  
+
 
       .state('app.anamenu', {
         url: '/anamenu',
         title: 'AnaMenu',
         templateUrl: basepath('anamenu.html'),
         controller: 'NullController',
-        resolve: resolveFor('codemirror','toaster', 'codemirror-plugins', 'moment','taginput','inputmask', 'chosen', 'slider', 'ngWig', 'filestyle')
+        resolve: resolveFor('codemirror', 'toaster', 'codemirror-plugins', 'moment', 'taginput', 'inputmask', 'chosen', 'slider', 'ngWig', 'filestyle')
       })
       .state('app.takvim', {
         url: '/takvim',
         title: 'Ders Takvimi',
         templateUrl: basepath('takvim.html'),
         controller: 'NullController',
-        resolve: resolveFor('codemirror','toaster','codemirror-plugins', 'moment','taginput','inputmask', 'chosen', 'slider', 'ngWig', 'filestyle','jquery-ui', 'moment','fullcalendar')
-    
+        resolve: resolveFor('codemirror', 'toaster', 'codemirror-plugins', 'moment', 'taginput', 'inputmask', 'chosen', 'slider', 'ngWig', 'filestyle', 'jquery-ui', 'moment', 'fullcalendar')
+
       })
       .state('app.raporO', {
         url: '/raporlar',
         title: 'Raporlar',
         templateUrl: basepath('raporO.html'),
         controller: 'NullController',
-        resolve: resolveFor('flot-chart','flot-chart-plugins','toaster')
+        resolve: resolveFor('flot-chart', 'flot-chart-plugins', 'toaster')
       })
       .state('app.Odersler', {
         url: '/Odersler',
@@ -189,13 +189,13 @@ App.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$com
         title: 'İcerikler',
         templateUrl: basepath('Oicerikler.html'),
         controller: 'NullController',
-        resolve: resolveFor('codemirror', 'codemirror-plugins', 'moment','taginput','inputmask', 'chosen', 'slider', 'ngWig', 'filestyle','toaster')
+        resolve: resolveFor('codemirror', 'codemirror-plugins', 'moment', 'taginput', 'inputmask', 'chosen', 'slider', 'ngWig', 'filestyle', 'toaster')
       })
       .state('app.cikis', {
         title: 'cikis',
         templateUrl: basepath('Oicerikler.html'),
         controller: 'cikisController',
-         })
+      })
 
 
       .state('page', {
@@ -300,7 +300,7 @@ App
     'gray': '#dde6e9',
     'gray-light': '#e4eaec',
     'gray-lighter': '#edf1f2'
-  })  
+  })
   //.constant('APP_firebase',{'veduchat-b3fa4':'https://veduchat-b3fa4.firebaseio.com/'} )
   .constant('APP_MEDIAQUERY', {
     'desktopLG': 1200,
@@ -342,18 +342,18 @@ App
       'datatables-pugins': ['vendor/datatable/extensions/datatable-bootstrap/js/dataTables.bootstrap.js', 'vendor/datatable/extensions/datatable-bootstrap/js/dataTables.bootstrapPagination.js', 'vendor/datatable/extensions/ColVis/js/dataTables.colVis.min.js', 'vendor/datatable/extensions/ColVis/css/dataTables.colVis.css'],
       'flatdoc': ['vendor/flatdoc/flatdoc.js'],
       //'firebase': ['vendor/firebase-app.js','vendor/firebase-database.js','vendor/firebase-storage.js'],
-      
-    //  'angularfire': ['vendor/angularfire/dist/angularfire.js']
-        //'firebase': ['vendor/firebase/firebase-app.js' , 'vendor/firebase/firebase-database.js' ]
+
+      //  'angularfire': ['vendor/angularfire/dist/angularfire.js']
+      //'firebase': ['vendor/firebase/firebase-app.js' , 'vendor/firebase/firebase-database.js' ]
     },//'vendor/firebase/firebase.js',
     modules: [
       { name: 'toaster', files: ['vendor/toaster/toaster.js', 'vendor/toaster/toaster.css'] },
-      { name: 'ngWig', files: ['vendor/ngwig/ng-wig.min.js'] }, 
-     // { name: 'firebase', files: ['vendor/firebase/firebase.js']},
-     // { name: 'firebase', files: ['vendor/firebase/firebase-database.js']},
-     // { name: 'firebase', files: ['vendor/firebase/firebase-storage.js']},
-     // { name: 'firebase', files: ['vendor/firebase-app.js']['vendor/firebase-database.js','vendor/firebase-storage.js' ]},
-     // { name: 'angularfire', files: ['vendor/angularfire.js'] }
+      { name: 'ngWig', files: ['vendor/ngwig/ng-wig.min.js'] },
+      // { name: 'firebase', files: ['vendor/firebase/firebase.js']},
+      // { name: 'firebase', files: ['vendor/firebase/firebase-database.js']},
+      // { name: 'firebase', files: ['vendor/firebase/firebase-storage.js']},
+      // { name: 'firebase', files: ['vendor/firebase-app.js']['vendor/firebase-database.js','vendor/firebase-storage.js' ]},
+      // { name: 'angularfire', files: ['vendor/angularfire.js'] }
     ]
   })
   ;
@@ -362,8 +362,8 @@ App
  * 
  =========================================================*/
 
- function get(params) {
-  
+function get(params) {
+
 }
 App.controller('cookiecont', ['$scope', '$cookieStore', function ($scope, $cookieStore) {
 
@@ -373,10 +373,10 @@ App.controller('cookiecont', ['$scope', '$cookieStore', function ($scope, $cooki
     $cookieStore.put('cookie', val)
   }
 }])
-App.controller('cikisController', ['$state', '$cookieStore','$scope', function ($state,$scope, $cookieStore) {
+App.controller('cikisController', ['$state', '$cookieStore', '$scope', function ($state, $scope, $cookieStore) {
 
   $cookieStore.remove('user')
-  $scope.globals.user=""
+  $scope.globals.user = ""
   $state.go('page.login')
 
 }])
@@ -385,18 +385,18 @@ App.controller('cikisController', ['$state', '$cookieStore','$scope', function (
  * 
  =========================================================*/
 
- App.controller('RaporOController', ['$scope', '$http','toaster', function ($scope, $http,toaster) {
+App.controller('RaporOController', ['$scope', '$http', 'toaster', function ($scope, $http, toaster) {
 
   $scope.model = [{
-    label:"deneme1",
-    color:"dads",
-    data:["feb",81]
-  },{
-    label:"deneme1",
-    color:"51baf2",
-    data:["jun",651]
+    label: "deneme1",
+    color: "dads",
+    data: ["feb", 81]
+  }, {
+    label: "deneme1",
+    color: "51baf2",
+    data: ["jun", 651]
   }
-];
+  ];
 
   // var ref = new Firebase('https://veduchat-b3fa4.firebaseio.com/')
   // //var DBController=$firebase(ref)
@@ -410,70 +410,70 @@ App.controller('cikisController', ['$state', '$cookieStore','$scope', function (
   //   var id = ref.key();
   //   console.log(id,"id")
   // })
- 
 
 
-  
+
+
 }]);
 /**=========================================================
  * Ogrenci icerikler
  * 
  =========================================================*/
 
-App.controller('ODerslerController', ['$scope', '$http','toaster', function ($scope, $http,toaster) {
+App.controller('ODerslerController', ['$scope', '$http', 'toaster', function ($scope, $http, toaster) {
 
   $scope.model = [];
 
- // console.log($scope.globals,"hahahaha")
+  // console.log($scope.globals,"hahahaha")
   var ders
-  $http.post('http://localhost:55705/oderscek',{KOgrenci:$scope.globals.UserName}).then(function (response) {
-    ders= response.data
+  $http.post('http://localhost:55705/oderscek', { KOgrenci: $scope.globals.UserName }).then(function (response) {
+    ders = response.data
     console.log(ders)
     ders.forEach(element => {
-     
-    url='http://localhost:55705/api/ODers/'+element.ODersID
 
-    $http.get(url).then(function (response) {
-      var dersayrinti = response.data
-      dersayrinti.KDersID=element.KDersID
- 
-      $scope.model.push(dersayrinti)
-    })
-   });
-   console.log($scope.model)
-  })
-$scope.toaster = {
-      type:  'success',
-      title: 'İşlem Tamamlandı',
-      text:  'Derse başarılı bir şekilde kayıt yapıldı'
-  };
-    $scope.toaster2 = {
-      type:  'danger',
-      title: 'Serverda Sorun Var',
-      text:  'Başka zaman tekrar deneyin'
-  };
-toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
-  
-  $scope.katil = function (item,item2) {
-    url='http://localhost:55705/api/KOgrenciler/'+item.KDersID
-    console.log(item)
-    $http.put(url,{KDersID:item.KDersID , ODersID:item.ODersID,KOgrenci:$scope.globals.UserName,KDersBaslik:item.OBaslik,KYoklama:item2})
-    .then(function (response) {
-      var gelen = response.data;
-      console.log("hello")
-          toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
-      
-    }, function (x) {
-      $scope.pop = function() {
-        toaster2.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
-      };
-      $scope.authMsg = 'Serverda Sorun var';
+      url = 'http://localhost:55705/api/ODers/' + element.ODersID
+
+      $http.get(url).then(function (response) {
+        var dersayrinti = response.data
+        dersayrinti.KDersID = element.KDersID
+
+        $scope.model.push(dersayrinti)
+      })
     });
+    console.log($scope.model)
+  })
+  $scope.toaster = {
+    type: 'success',
+    title: 'İşlem Tamamlandı',
+    text: 'Derse başarılı bir şekilde kayıt yapıldı'
+  };
+  $scope.toaster2 = {
+    type: 'danger',
+    title: 'Serverda Sorun Var',
+    text: 'Başka zaman tekrar deneyin'
+  };
+  toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
+
+  $scope.katil = function (item, item2) {
+    url = 'http://localhost:55705/api/KOgrenciler/' + item.KDersID
+    console.log(item)
+    $http.put(url, { KDersID: item.KDersID, ODersID: item.ODersID, KOgrenci: $scope.globals.UserName, KDersBaslik: item.OBaslik, KYoklama: item2 })
+      .then(function (response) {
+        var gelen = response.data;
+        console.log("hello")
+        toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
+
+      }, function (x) {
+        $scope.pop = function () {
+          toaster2.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
+        };
+        $scope.authMsg = 'Serverda Sorun var';
+      });
 
 
   }
 
-  
+
 }]);
 
 /**=========================================================
@@ -481,61 +481,62 @@ toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
  * 
  =========================================================*/
 
- App.controller('OicerikController', ['$scope', '$http','toaster', function ($scope, $http,toaster ) { //ogrenci icerik controller
+App.controller('OicerikController', ['$scope', '$http', 'toaster', function ($scope, $http, toaster) { //ogrenci icerik controller
 
 
   //$scope.thisCanBeusedInsideNgBindHtml = $sce.trustAsHtml(someHtmlVar); ***sanitize veya sce ile html tagları gösterilmez ama beceremedim. şimdilik
 
   $scope.modelicerik = [];
 
-var url='http://localhost:55705/api/icerikler'
+  var url = 'http://localhost:55705/api/icerikler'
 
-$http.get(url).success(function (response) {
-$scope.modelicerik=response;
-console.log()
-}).error(function () {
-  $.error('Serverda sorun var');
-});
+  $http.get(url).success(function (response) {
+    $scope.modelicerik = response;
+    console.log()
+  }).error(function () {
+    $.error('Serverda sorun var');
+  });
 
 
   var today = new Date()
   var min = new Date().getMinutes();
-  var hour =  new Date().getHours()
+  var hour = new Date().getHours()
   var dd = String(today.getDate()).padStart(2, '0');
   var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
   var yyyy = today.getFullYear();
 
-  today =hour+':'+min+' - '+ mm + '/' + dd + '/' + yyyy;
+  today = hour + ':' + min + ' - ' + mm + '/' + dd + '/' + yyyy;
 
- // console.log()
-  $scope.icer ="1";
+  // console.log()
+  $scope.icer = "1";
 
 
-  $scope.icerikac=function () {
-    $scope.icer="2";
+  $scope.icerikac = function () {
+    $scope.icer = "2";
   }
-  $scope.icerikkapat=function () {
-    $scope.icer="1";
+  $scope.icerikkapat = function () {
+    $scope.icer = "1";
   }
 
 
   $scope.onSubmit = function (item) {
 
     $http.post('http://localhost:55705/api/icerikler', {
-      Icerik:item,
-      Tarih:today,
-      OlusturanKisi:$scope.globals.UserName
+      Icerik: item,
+      Tarih: today,
+      OlusturanKisi: $scope.globals.UserName
     }).then(function (response) {
-        var gelen = response.data;
+      var gelen = response.data;
       $scope.modelicerik.push({
-        Icerik:item,
-        Tarih:today,
-        OlusturanKisi: $scope.globals.UserName  }     
+        Icerik: item,
+        Tarih: today,
+        OlusturanKisi: $scope.globals.UserName
+      }
       )
-      }, function (x) {
-        $scope.authMsg = 'Serverda sorun vardır';
-      });
-    
+    }, function (x) {
+      $scope.authMsg = 'Serverda sorun vardır';
+    });
+
   }
   var url = 'http://localhost:55705/api/icerikler/'
   $scope.sil = function (id, index) {
@@ -543,7 +544,7 @@ console.log()
     var removeindex = $scope.modelicerik.indexOf(index);
     $scope.modelicerik.splice(removeindex, 1)
 
-     url=url + id
+    url = url + id
     $http.delete(url)
       .then(function (response) {
         var gelen = response.data;
@@ -557,10 +558,10 @@ console.log()
 
   $scope.guncelle = function (item) {
     console.log(item)
-    var dede=item;
+    var dede = item;
     console.log(dede.Icerik)
-    url= url + dede.ID;
-    $http.put(url,dede)
+    url = url + dede.ID;
+    $http.put(url, dede)
       .then(function (response) {
         var gelen = response.data;
         console.log(gelen)
@@ -577,36 +578,36 @@ console.log()
  * 
  =========================================================*/
 
- App.controller('TakvimController', ['$scope', '$http','toaster', function ($scope, $http ,toaster ) {
-   'use strict'
+App.controller('TakvimController', ['$scope', '$http', 'toaster', function ($scope, $http, toaster) {
+  'use strict'
 
-   //saatleri çekmek için
-   $scope.mytime = new Date();
-   $scope.mytime.setHours(11);
-   $scope.mytime.setMinutes(0);
-   $scope.hstep = 1;
-   $scope.mstep = 15;
- 
-   $scope.options = {
-     hstep: [1, 2, 3],
-     mstep: [1, 5, 10, 15, 25, 30]
-   };
- 
-   $scope.ismeridian = false;
-   $scope.toggleMode = function () {
-     $scope.ismeridian = !$scope.ismeridian;
-   };
- 
-   $scope.changed = function () {
-     console.log('Time changed to: ' + $scope.mytime);
- 
-   };
- 
+  //saatleri çekmek için
+  $scope.mytime = new Date();
+  $scope.mytime.setHours(11);
+  $scope.mytime.setMinutes(0);
+  $scope.hstep = 1;
+  $scope.mstep = 15;
 
-//takvim........................................
-   $scope.today = function () {
+  $scope.options = {
+    hstep: [1, 2, 3],
+    mstep: [1, 5, 10, 15, 25, 30]
+  };
+
+  $scope.ismeridian = false;
+  $scope.toggleMode = function () {
+    $scope.ismeridian = !$scope.ismeridian;
+  };
+
+  $scope.changed = function () {
+    console.log('Time changed to: ' + $scope.mytime);
+
+  };
+
+
+  //takvim........................................
+  $scope.today = function () {
     $scope.dt = new Date();
-console.log($scope.dt)
+    console.log($scope.dt)
   };
   $scope.today();
 
@@ -639,104 +640,104 @@ console.log($scope.dt)
   $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
   $scope.format = $scope.formats[0];
 
-//takvim yukarısı
+  //takvim yukarısı
 
-  $scope.ogrenciler=["Hepsi","Diğer"]
+  $scope.ogrenciler = ["Hepsi", "Diğer"]
   var tumogrenciler
-  $scope.doldur =function() {
+  $scope.doldur = function () {
 
-    $http.post('http://localhost:55705/ogrencicek/',{RoleID:3}).then(function (response) { //ogrenciler tam degil
-    
-    tumogrenciler = response.data
-     
-    tumogrenciler.forEach(element => {
+    $http.post('http://localhost:55705/ogrencicek/', { RoleID: 3 }).then(function (response) { //ogrenciler tam degil
+
+      tumogrenciler = response.data
+
+      tumogrenciler.forEach(element => {
         $scope.ogrenciler.push(element.UserName)
       });
       console.log(response.data)
     })
   }
 
-    $http.get('http://localhost:55705/api/Dersler').then(function (response) { // dersler
-      var dersler = response.data
-      $scope.deneme=dersler
-  
-    })
+  $http.get('http://localhost:55705/api/Dersler').then(function (response) { // dersler
+    var dersler = response.data
+    $scope.deneme = dersler
+
+  })
 
 
-  $scope.onSubmit= function () {
-   // console.log($scope.dersSecilen.AnaDers) //tarih alınacak
+  $scope.onSubmit = function () {
+    // console.log($scope.dersSecilen.AnaDers) //tarih alınacak
     //console.log($scope.dersOgrenci)
-   
+
     //tarih..............
     var tarih = new Date()
-    var min =   String($scope.mytime.getMinutes()).padStart(2, '0') // pad start boşssa 0 koymak için
-    var hour =  String($scope.mytime.getHours()).padStart(2, '0')
-    var dd =    String($scope.dt.getDate()).padStart(2, '0');
-    var mm =    String($scope.dt.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var min = String($scope.mytime.getMinutes()).padStart(2, '0') // pad start boşssa 0 koymak için
+    var hour = String($scope.mytime.getHours()).padStart(2, '0')
+    var dd = String($scope.dt.getDate()).padStart(2, '0');
+    var mm = String($scope.dt.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = $scope.dt.getFullYear();
     console.log(tarih)
-    tarih= dd + '/' + mm + '/' + yyyy;
-    var saat =hour+':'+min
+    tarih = dd + '/' + mm + '/' + yyyy;
+    var saat = hour + ':' + min
     //............... ogrenci dizisini düzenliyoruz
 
-    if($scope.dersOgrenci[0]=="Hepsi"){
+    if ($scope.dersOgrenci[0] == "Hepsi") {
       $scope.dersOgrenci.splice(0, 1);
       tumogrenciler.forEach(element => {
         $scope.dersOgrenci.push(element.UserName)
       });
-  
-    }else if($scope.dersOgrenci[0]=="Diğer"){
+
+    } else if ($scope.dersOgrenci[0] == "Diğer") {
       $scope.dersOgrenci.splice(0, 1);
       console.log("geldim")
     }
-//............................
-$scope.takvim ={ // takvimin tamamı
-  "OlusturanOgretmen":$scope.globals.UserName, 
-  "OBaslik": $scope.dersBaslik,
-  "OAciklama":$scope.dersAciklama,
-  "OAnaders":$scope.dersSecilen.AnaDers,
-  "ODerss":$scope.dersSecilen.Ders,
-  "OTarih":tarih,
-  "OSaat":saat,
-  "ODersSuresi":$scope.dersSuresi,
-}
-var url='http://localhost:55705/api/ODers'
-var gelen;
-$scope.toaster = {
-  type:  'success',
-  title: 'İşlem Tamamlandı',
-  text:  'Derse başarılı bir şekilde kayıt yapıldı'
-};
-$scope.toaster2 = {
-type:  'danger',
-title: 'Serverda Sorun Var',
-text:  'Başka zaman tekrar deneyin'
-};
+    //............................
+    $scope.takvim = { // takvimin tamamı
+      "OlusturanOgretmen": $scope.globals.UserName,
+      "OBaslik": $scope.dersBaslik,
+      "OAciklama": $scope.dersAciklama,
+      "OAnaders": $scope.dersSecilen.AnaDers,
+      "ODerss": $scope.dersSecilen.Ders,
+      "OTarih": tarih,
+      "OSaat": saat,
+      "ODersSuresi": $scope.dersSuresi,
+    }
+    var url = 'http://localhost:55705/api/ODers'
+    var gelen;
+    $scope.toaster = {
+      type: 'success',
+      title: 'İşlem Tamamlandı',
+      text: 'Derse başarılı bir şekilde kayıt yapıldı'
+    };
+    $scope.toaster2 = {
+      type: 'danger',
+      title: 'Serverda Sorun Var',
+      text: 'Başka zaman tekrar deneyin'
+    };
 
-$http.post(url,$scope.takvim).success(function (response) { //takvimin oluşturulması
-   gelen=response;
-  console.log(gelen)
- // ogrencilerin kayıt edilmesi
- $scope.dersOgrenci.forEach(element => {
-  $http.post('http://localhost:55705/api/KOgrenciler', {ODersID:gelen.ODersID , KOgrenci:element , KDersBaslik:gelen.OBaslik} )
-  .success(function (response) {
-  gelen=response;
- console.log(gelen)
- }).error(function () {
-  toaster2.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
-   $.error('Serverda sorun var');
- });
+    $http.post(url, $scope.takvim).success(function (response) { //takvimin oluşturulması
+      gelen = response;
+      console.log(gelen)
+      // ogrencilerin kayıt edilmesi
+      $scope.dersOgrenci.forEach(element => {
+        $http.post('http://localhost:55705/api/KOgrenciler', { ODersID: gelen.ODersID, KOgrenci: element, KDersBaslik: gelen.OBaslik })
+          .success(function (response) {
+            gelen = response;
+            console.log(gelen)
+          }).error(function () {
+            toaster2.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
+            $.error('Serverda sorun var');
+          });
 
-});
-toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
-  }).error(function () {
-    toaster2.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
-    $.error('Serverda sorun var');
-  });
-      //ogrenciler için veritabanına kayıt
+      });
+      toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
+    }).error(function () {
+      toaster2.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
+      $.error('Serverda sorun var');
+    });
+    //ogrenciler için veritabanına kayıt
     //.................................................... takvime aktarılması
 
-    
+
   }
 
   var ExternalEvent = function (elements) {
@@ -792,16 +793,16 @@ toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
         day: 'Gün'
       },
       editable: true,
-      selectable:true,
+      selectable: true,
       droppable: false, // this allows things to be dropped onto the calendar 
- 
+
 
       addEventListener: function (event, js, ui) {
         console.log("hello")
       },
       // This array is the events sources
       events: events
-      
+
     });
   }
 
@@ -893,47 +894,47 @@ toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
     // Date for the calendar events (dummy data)
     var date = new Date();
     var d = date.getDate(),
-        m = date.getMonth(),
-        y = date.getFullYear();
+      m = date.getMonth(),
+      y = date.getFullYear();
     var data;
-    event=[{
+    event = [{
       title: 'Deneme 1',
       start: new Date(y, m, 1),
       backgroundColor: '#f56954', //red 
       borderColor: '#f56954' //red
-    },{
+    }, {
       title: 'Deneme 23',
       start: new Date(y, m, d - 5),
       end: new Date(y, m, d - 2),
       backgroundColor: '#f39c12', //yellow
       borderColor: '#f39c12' //yellow
     }];
-   
+
     $http.get('http://localhost:55705/api/ODers').then(function (response) {
       'use strict'
-       data = response.data;
-       
-       console.log(data)
+      data = response.data;
 
-          data.forEach(element => {
-          var saat= element.OSaat.split(":") // saati dakka ve saate parçalıyoruz
-          var tarih= element.OTarih.split("/") // tarihi parçalıyoruz  
+      console.log(data)
+
+      data.forEach(element => {
+        var saat = element.OSaat.split(":") // saati dakka ve saate parçalıyoruz
+        var tarih = element.OTarih.split("/") // tarihi parçalıyoruz  
 
         event.push({
-                 title:element.OBaslik,
-                 start:new Date(tarih[2],tarih[1]-1,tarih[0],saat[0]+3,saat[1]),
-                 end: new Date(tarih[2],tarih[1]-1,tarih[0],saat[0]+3,saat[1]+element.ODersSuresi),
-                 allDay:false,
-                 backgroundColor: '#0073b7',
-                 borderColor: '#0073b7' 
-          })
-        });
-        
+          title: element.OBaslik,
+          start: new Date(tarih[2], tarih[1] - 1, tarih[0], saat[0] + 3, saat[1]),
+          end: new Date(tarih[2], tarih[1] - 1, tarih[0], saat[0] + 3, saat[1] + element.ODersSuresi),
+          allDay: false,
+          backgroundColor: '#0073b7',
+          borderColor: '#0073b7'
         })
-   
-     // ----------------------- burda sorun var çektiğim veriler gözükmüyor
-     return event
-        
+      });
+
+    })
+
+    // ----------------------- burda sorun var çektiğim veriler gözükmüyor
+    return event
+
   }
   // When dom ready, init calendar and events
   $(function () {
@@ -942,7 +943,7 @@ toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
     var calendar = $('#calendar');
 
     var demoEvents = createDemoEvents();
-    demoEvents=createDemoEvents();
+    demoEvents = createDemoEvents();
     //initExternalEvents(calendar);
 
     initCalendar(calendar, demoEvents);
@@ -955,21 +956,21 @@ toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
  * ogretmen icerik oluşturduğu içerikleri çektiği bölüm
  * 
  =========================================================*/
- App.controller('icerikController', ['$scope', '$http','toaster', function ($scope, $http,toaster ) {
+App.controller('icerikController', ['$scope', '$http', 'toaster', function ($scope, $http, toaster) {
 
 
   //$scope.thisCanBeusedInsideNgBindHtml = $sce.trustAsHtml(someHtmlVar); ***sanitize veya sce ile html tagları gösterilmez ama beceremedim. şimdilik
 
   $scope.modelicerik = [];
 
-var url='http://localhost:55705/api/icerikler/deneme1'
+  var url = 'http://localhost:55705/api/icerikler/deneme1'
 
-$http.post(url,{OlusturanKisi:$scope.globals.UserName}).success(function (response) {
-$scope.modelicerik=response;
-console.log()
-}).error(function () {
-  $.error('Serverda sorun var');
-});
+  $http.post(url, { OlusturanKisi: $scope.globals.UserName }).success(function (response) {
+    $scope.modelicerik = response;
+    console.log()
+  }).error(function () {
+    $.error('Serverda sorun var');
+  });
 
 
 
@@ -977,60 +978,61 @@ console.log()
 
   var today = new Date()
   var min = new Date().getMinutes();
-  var hour =  new Date().getHours()
+  var hour = new Date().getHours()
   var dd = String(today.getDate()).padStart(2, '0');
   var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
   var yyyy = today.getFullYear();
 
-  today =hour+':'+min+' - '+ mm + '/' + dd + '/' + yyyy;
+  today = hour + ':' + min + ' - ' + mm + '/' + dd + '/' + yyyy;
 
- // console.log()
-  $scope.icer ="1";
+  // console.log()
+  $scope.icer = "1";
 
 
-  $scope.icerikac=function () {
-    $scope.icer="2";
+  $scope.icerikac = function () {
+    $scope.icer = "2";
   }
-  $scope.icerikkapat=function () {
-    $scope.icer="1";
+  $scope.icerikkapat = function () {
+    $scope.icer = "1";
   }
   $scope.toaster = {
-    type:  'success',
+    type: 'success',
     title: 'İşlem Tamamlandı',
-    text:  'İçerik Kayıt Edildi'
+    text: 'İçerik Kayıt Edildi'
   };
   $scope.toaster2 = {
-  type:  'danger',
-  title: 'Serverda Sorun Var',
-  text:  'Başka zaman tekrar deneyin'
+    type: 'danger',
+    title: 'Serverda Sorun Var',
+    text: 'Başka zaman tekrar deneyin'
   };
   $scope.toaster3 = {
-    type:  'info',
+    type: 'info',
     title: 'İşlem Tamamlandı',
-    text:  'Yazınız Güncellendi'
-    };
-  
+    text: 'Yazınız Güncellendi'
+  };
+
 
   $scope.onSubmit = function (item) {
 
 
     $http.post('http://localhost:55705/api/icerikler', {
-      Icerik:item,
-      Tarih:today,
-      OlusturanKisi:$scope.globals.UserName
+      Icerik: item,
+      Tarih: today,
+      OlusturanKisi: $scope.globals.UserName
     }).then(function (response) {
-        var gelen = response.data;
-        toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
+      var gelen = response.data;
+      toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
       $scope.modelicerik.push({
-        Icerik:item,
-        Tarih:today,
-        OlusturanKisi: $scope.globals.UserName  }     
+        Icerik: item,
+        Tarih: today,
+        OlusturanKisi: $scope.globals.UserName
+      }
       )
-      }, function (x) {
-        toaster2.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
-        $scope.authMsg = 'Serverda sorun vardır';
-      });
-    
+    }, function (x) {
+      toaster2.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
+      $scope.authMsg = 'Serverda sorun vardır';
+    });
+
   }
   var url = 'http://localhost:55705/api/icerikler/'
   $scope.sil = function (id, index) {
@@ -1038,7 +1040,7 @@ console.log()
     var removeindex = $scope.modelicerik.indexOf(index);
     $scope.modelicerik.splice(removeindex, 1)
 
-     url=url + id
+    url = url + id
     $http.delete(url)
       .then(function (response) {
         var gelen = response.data;
@@ -1052,10 +1054,10 @@ console.log()
 
   $scope.guncelle = function (item) {
     console.log(item)
-    var dede=item;
+    var dede = item;
     console.log(dede.Icerik)
-    url= url + dede.ID;
-    $http.put(url,dede)
+    url = url + dede.ID;
+    $http.put(url, dede)
       .then(function (response) {
         var gelen = response.data;
         console.log(gelen)
@@ -1074,7 +1076,7 @@ console.log()
  =========================================================*/
 
 
-App.controller('UsersController', ['$scope', '$http', '$state','toaster', function ($scope, $http, $state,toaster ) {
+App.controller('UsersController', ['$scope', '$http', '$state', 'toaster', function ($scope, $http, $state, toaster) {
 
 
   $scope.user = [
@@ -1083,21 +1085,21 @@ App.controller('UsersController', ['$scope', '$http', '$state','toaster', functi
 
   $scope.model = [];
   $scope.toaster = {
-    type:  'success',
+    type: 'success',
     title: 'İşlem Tamamlandı',
-    text:  'Kişi Kayıt Edildi'
+    text: 'Kişi Kayıt Edildi'
   };
   $scope.toaster2 = {
-  type:  'danger',
-  title: 'Serverda Sorun Var',
-  text:  'Başka zaman tekrar deneyin'
+    type: 'danger',
+    title: 'Serverda Sorun Var',
+    text: 'Başka zaman tekrar deneyin'
   };
   $scope.toaster3 = {
-    type:  'info',
+    type: 'info',
     title: 'İşlem Tamamlandı',
-    text:  'Kayıt Silindi'
-    };
-    toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
+    text: 'Kayıt Silindi'
+  };
+  toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
 
   $http.get('http://localhost:55705/api/User').then(function (response) {
     console.log(response)
@@ -1161,16 +1163,16 @@ App.controller('UsersController', ['$scope', '$http', '$state','toaster', functi
         Password: $scope.user.Password, Email: $scope.user.Email,
         FullName: $scope.user.FullName, RoleID: $scope.user.RoleID
       }).then(function (response) {
-          var gelen = response.data;
-          console.log(gelen)
-          toaster1.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
-          // assumes if ok, response is an object with some data, if not, a string with error
-          // customize according to your api
+        var gelen = response.data;
+        console.log(gelen)
+        toaster1.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
+        // assumes if ok, response is an object with some data, if not, a string with error
+        // customize according to your api
 
-        }, function (x) {
-          toaster2.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
-          $scope.authMsg = 'Kullanıcı adi veya Şifre hatalı';
-        });
+      }, function (x) {
+        toaster2.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
+        $scope.authMsg = 'Kullanıcı adi veya Şifre hatalı';
+      });
     }
 
   }
@@ -1185,7 +1187,7 @@ App.controller('UsersController', ['$scope', '$http', '$state','toaster', functi
  =========================================================*/
 
 
-App.controller('AdminDerslerController', ['$scope', '$http','toaster', function ($scope, $http,toaster, $state) {
+App.controller('AdminDerslerController', ['$scope', '$http', 'toaster', function ($scope, $http, toaster, $state) {
 
   $scope.model = [];
 
@@ -1194,12 +1196,12 @@ App.controller('AdminDerslerController', ['$scope', '$http','toaster', function 
     var anadersler = response.data
     anadersler.forEach(element => {
       $scope.model.push({ title: element.Anaders, subitems: [] })
-   
+
     });
 
     $http.get('http://localhost:55705/api/Dersler').then(function (response) {
       var dersler = response.data
-    
+
       dersler.forEach(ders => {
         angular.forEach($scope.model, function (value, key) {
           if (value.title === ders.AnaDers) {
@@ -1210,7 +1212,7 @@ App.controller('AdminDerslerController', ['$scope', '$http','toaster', function 
       console.log($scope.model, "son")
     })
 
-  
+
     if ($scope.model[1].title == "Sayısal") {
       $scope.model[1].subitems.push("deneme")
       console.log($scope.model[1])
@@ -1263,9 +1265,9 @@ App.controller('AdminDerslerController', ['$scope', '$http','toaster', function 
 
 
 
-App.controller('LoginFormController', ['$scope', '$http', '$state', '$cookieStore' , function ($scope, $http, $state, $cookieStore) {
+App.controller('LoginFormController', ['$scope', '$http', '$state', '$cookieStore', function ($scope, $http, $state, $cookieStore) {
 
- 
+
   // bind here all data from the form
   $scope.account = {};
   // place the message if something goes wrong
@@ -1275,16 +1277,16 @@ App.controller('LoginFormController', ['$scope', '$http', '$state', '$cookieStor
     $scope.authMsg = '';
 
     $http
-      .post('http://localhost:55705/api/User', { UserName: $scope.account.UserName, password: $scope.account.password})
+      .post('http://localhost:55705/api/User', { UserName: $scope.account.UserName, password: $scope.account.password })
       .then(function (response) {
         var gelen = response.data;
-     
+
         // assumes if ok, response is an object with some data, if not, a string with error
         // customize according to your api
-        $scope.globals.UserName=gelen.UserName;
+        $scope.globals.UserName = gelen.UserName;
         if (gelen.RoleID == 1) {
           gelen.role = "Admin";
-          
+
           $cookieStore.put('user', gelen)
           $state.go('app.dersler');
         }
@@ -1310,7 +1312,7 @@ App.controller('LoginFormController', ['$scope', '$http', '$state', '$cookieStor
  * Demo for register account api
  =========================================================*/
 
-App.controller('RegisterFormController', ['$scope', '$http', '$state' , function ($scope, $http, $state) {
+App.controller('RegisterFormController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
 
   // bind here all data from the form
   $scope.account = {};
@@ -1559,8 +1561,8 @@ App.controller('CalendarController', ['$scope', function ($scope) {
     // Date for the calendar events (dummy data)
     var date = new Date();
     var d = date.getDate(),
-        m = date.getMonth(),
-        y = date.getFullYear();
+      m = date.getMonth(),
+      y = date.getFullYear();
 
     return [
       {
@@ -1791,7 +1793,7 @@ App.controller('CarouselDemoCtrl', ['$scope', function ($scope) {
 App.controller('DatepickerDemoCtrl', ['$scope', function ($scope) {
   $scope.today = function () {
     $scope.dt = new Date();
-console.log($scope.dt)
+    console.log($scope.dt)
   };
   $scope.today();
 
@@ -1829,16 +1831,16 @@ console.log($scope.dt)
 
 App.controller('FormDemoCtrl', function ($scope) {
 
- 
+
   $scope.states = [
-  
+
   ];
   $http.get('http://localhost:55705/api/Dersler').then(function (response) {
     var dersler = response.data
- 
-   
-    $scope.states=dersler.Ders
-    console.log($scope.states,"buda dersli")
+
+
+    $scope.states = dersler.Ders
+    console.log($scope.states, "buda dersli")
   })
 });
 /**=========================================================
@@ -2109,6 +2111,45 @@ App.controller('FileUploadController', ['$scope', function ($scope) {
 App.controller('FlotChartController', ['$scope', '$window', '$http', function ($scope, $window, $http) {
   'use strict';
 
+  // function asyncGreet(name) {
+  //   // perform some asynchronous operation, resolve or reject the promise when appropriate.
+  //   return $q(function(resolve, reject) {
+  //     setTimeout(function() {
+  //       if (okToGreet(name)) {
+  //         resolve('Hello, ' + name + '!');
+  //       } else {
+  //         reject('Greeting ' + name + ' is not allowed.');
+  //       }
+  //     }, 1000);
+  //   });
+  // }
+
+  // var promise = asyncGreet('Robin Hood');
+  // promise.then(function(greeting) {
+  //   alert('Success: ' + greeting);
+  // }, function(reason) {
+  //   alert('Failed: ' + reason);
+  // });
+
+
+  // $scope.addOne = function(num){
+  //   var q = $q.defer()
+  //   if(angular.isNumber(num)){
+  //     q.resolve(num+1)
+  //   }
+  //   else{
+  //     q.reject('nan')
+  //   }
+  //   return q.promise
+  // }
+
+  // $scope.myValue=0;
+  // $scope.promise = $scope.addOne($scope.myValue)
+  // $scope.promise.then(
+  //   function(v) {$scope.myValue=v   
+  //   },
+  //   function(err){$scope.myValue=err}
+  // )
   /**
    * Global object to load data for charts using ajax 
    * Request the chart data from the server via post
@@ -2128,219 +2169,319 @@ App.controller('FlotChartController', ['$scope', '$window', '$http', function ($
     this.url = url
     console.log(url)
 
-  //   $scope.model = [{
-  //     label:"deneme1",
-  //     color:"#51bff2",
-  //     data:[["feb",'81'],['des','11']]
-  //   },{
-  //     label:"deneme1",
-  //     color:"#51bff2",
-  //     data:[["feb",'65'],['des','12']]
-  //   }
-  // ];
-  //console.log($scope.model)
+    //   $scope.model = [{
+    //     label:"deneme1",
+    //     color:"#51bff2",
+    //     data:[["feb",'81'],['des','11']]
+    //   },{
+    //     label:"deneme1",
+    //     color:"#51bff2",
+    //     data:[["feb",'65'],['des','12']]
+    //   }
+    // ];
+    //console.log($scope.model)
 
- 
 
-//  console.log($scope.data)
-//   $scope.data[0].data[1].push("deneme")
-//   console.log($scope.data)
+    //  console.log($scope.data)
+    //   $scope.data[0].data[1].push("deneme")
+    //   console.log($scope.data)
+    $scope.data = [{
+      label: "Katilanlar",
+      color: "#51bff2",
+      data: [
+      ]
+    }, {
+
+      label: "Katilmayanlar",
+      color: "#4a8ef1",
+      data: [
+      ]
+    },
+    {
+      label: "Kararsizlar",
+      color: "#d87a80",
+      data: [
+      ]
+    }
+    ];
+    $scope.data2 = [{
+      label: "Katilanlar",
+      color: "#51bff2",
+      data: [["Matematik Dersi", '5'], ['Atişlar', '2']
+      ]
+    }, {
+
+      label: "Katilmayanlar",
+      color: "#4a8ef1",
+      data: [["Matematik Dersi", '2'], ['Atişlar', '1']
+      ]
+    },
+    {
+      label: "Kararsizlar",
+      color: "#d87a80",
+      data: [["Matematik Dersi", '1'], ['Atişlar', '1']
+      ]
+    }
+    ];
+
     this.requestData = function (option, method, callback) {
       var self = this;
+      callback = (method && $.isFunction(method)) ? method : callback;
+      method = (method && typeof method == 'string') ? method : 'POST';
+
       self.option = option; // save options
-  
-    if(url=='ogretmen'){
-     
-  $http
-  .post('http://localhost:55705/oraporcek', { OlusturanOgretmen: $scope.globals.UserName})
-      .then(function (response) {
-        $scope.data = [{
-          label:"Katilanlar",
-          color:"#51bff2",
-          data:[["Matematik Dersi",'3'],['Atişlar','3']
-        ]
-        },{
-    
-          label:"Katilmayanlar",
-          color:"#4a8ef1",
-          data:[["Matematik Dersi",'2'],['Atişlar','1']
-        ]
-        },
-        {
-          label:"Kararsizlar",
-          color:"#d87a80",
-          data:[["Matematik Dersi",'1'],['Atişlar','1']
-        ]
-        }
-      ];
 
-        var gelen = response.data;
+     if(url=='ogretmen'){
+      $http({
+        url: 'http://localhost:55705/oraporcek',
+        data: { OlusturanOgretmen: $scope.globals.UserName },
+        cache: false,
+        method: method
+      }).success(function (response) {
+
+        var gelen = response;
         console.log(gelen)
-        let sayac=0
+        let sayac = 0
         gelen.forEach(element => {
-          console.log(element,"bu")
-          let katilan=0, katilmayan=0,kararsiz=0;
-          $http.post('http://localhost:55705/roderscek', { ODersID: element.ODersID})
-          .then(function (response) {
-            var gelen2=response.data;
-            console.log(gelen2)
-           
+          console.log(element, "bu")
+          let katilan = 0, katilmayan = 0, kararsiz = 0;
+          $http({
+            url: 'http://localhost:55705/roderscek',
+            data: { ODersID: element.ODersID },
+            cache: false,
+            method: method
+          }).success(function (response) {
+            var gelen2 = response;
+
             for (let index = 0; index < gelen2.length; index++) {
-              console.log(gelen2[index],'hello')
-              if(gelen2[index].KYoklama=='1'){
-              katilan++;
-              }else if (gelen2[index].KYoklama=='0')
-              katilmayan++;
-              else
-              kararsiz++;
-            }
-            console.log(katilan,katilmayan,kararsiz)
-
-            $scope.data[0].data.push(element.OBaslik,katilan)
-            $scope.data[1].data.push(element.OBaslik,katilmayan)
-            $scope.data[2].data.push(element.OBaslik,kararsiz)
-            console.log($scope.data)
-            $scope.data[0].data[1] = 3
-            console.log($scope.data[1].data[1])
-            sayac++;
-            $.plot(self.element, $scope.data, option);
-          })
-      
-        })
      
-    }).then(function(data){
-      console.log(data,"deneme")
-      console.log($scope.data[1].data[1],"aaaaaaaaa")
-      
-    })
-    katilimogretmen
-  }else if(url=='Aogretmen'){
-     
-
-    $http
-    .post('http://localhost:55705/oraporcek', { OlusturanOgretmen: $scope.globals.UserName})
-        .then(function (response) {
-          $scope.data = [{
-            label:"ogretmen",
-            color:"#51bff2",
-            data:[["9/04/2019",'3'],['11/04/2019','3'],['16/04/2019','1']
-          ]
-          },{
-      
-            label:"malinayir",
-            color:"#4a8ef1",
-            data:[["9/04/2019",'0'],['11/04/2019','1'],['16/04/2019','2']
-          ]
-          },
-        ]
-  
-          var gelen = response.data;
-          console.log(gelen)
-          let sayac=0
-          gelen.forEach(element => {
-            console.log(element,"bu")
-            let katilan=0, katilmayan=0,kararsiz=0;
-            $http.post('http://localhost:55705/roderscek', { ODersID: element.ODersID})
-            .then(function (response) {
-              var gelen2=response.data;
-              console.log(gelen2)
-             
-              for (let index = 0; index < gelen2.length; index++) {
-                console.log(gelen2[index],'hello')
-                if(gelen2[index].KYoklama=='1'){
+              if (gelen2[index].KYoklama == '1') {
                 katilan++;
-                }else if (gelen2[index].KYoklama=='0')
+              } else if (gelen2[index].KYoklama == '0')
                 katilmayan++;
-                else
+              else
                 kararsiz++;
-              }
-              console.log(katilan,katilmayan,kararsiz)
-  
-              $scope.data[0].data.push(element.OBaslik,katilan)
-              $scope.data[1].data.push(element.OBaslik,katilmayan)
-              $scope.data[2].data.push(element.OBaslik,kararsiz)
-              console.log($scope.data)
-              $scope.data[0].data[1] = 3
-              console.log($scope.data[1].data[1])
-              sayac++;
-              
-            })
-        
-          })
-       
-      }).then(function(data){
-        console.log(data,"deneme")
-        console.log($scope.data[1].data[1],"aaaaaaaaa")
-         $.plot(self.element, $scope.data, option);
-      })
-      
-    }else if(url=='katilimogretmen'){
-     
-
-      $http
-      .post('http://localhost:55705/oraporcek', { OlusturanOgretmen: $scope.globals.UserName})
-          .then(function (response) {
-            $scope.data = [{
-              label:"Katilanlar",
-              color:"#51bff2",
-              data:[["Matematik Dersi",'3'],['Atişlar','3'],['d','3'],['deneme','0']
-            ]
-            },{
-        
-              label:"Katilmayanlar",
-              color:"#4a8ef1",
-              data:[["Matematik Dersi",'1'],['Atişlar','1'],['d','0'],['deneme','0']
-            ]
-            },
-            {
-              label:"Kararsizlar",
-              color:"#d87a80",
-              data:[["Matematik Dersi",'2'],['Atişlar','1'],['d','1'],['deneme','5']
-            ]
             }
-          ];
-    
-            var gelen = response.data;
-            console.log(gelen)
-            let sayac=0
-            gelen.forEach(element => {
-              console.log(element,"bu")
-              let katilan=0, katilmayan=0,kararsiz=0;
-              $http.post('http://localhost:55705/roderscek', { ODersID: element.ODersID})
-              .then(function (response) {
-                var gelen2=response.data;
-                console.log(gelen2)
-               
-                for (let index = 0; index < gelen2.length; index++) {
-                  console.log(gelen2[index],'hello')
-                  if(gelen2[index].KYoklama=='1'){
-                  katilan++;
-                  }else if (gelen2[index].KYoklama=='0')
-                  katilmayan++;
-                  else
-                  kararsiz++;
-                }
-              //  console.log(katilan,katilmayan,kararsiz)
-    
-                $scope.data[0].data.push(element.OBaslik,katilan)
-                $scope.data[1].data.push(element.OBaslik,katilmayan)
-                $scope.data[2].data.push(element.OBaslik,kararsiz)
-              //  console.log($scope.data)
-                $scope.data[0].data[1] = 3
-              //  console.log($scope.data[1].data[1])
-                sayac++;
-                
-              })
-          
-            })
-         
-        }).then(function(data){
-          console.log(data,"deneme")
-          console.log($scope.data[1].data[1],"aaaaaaaaa")
-           $.plot(self.element, $scope.data, option);
+           
+            katilan = katilan.toString()
+            katilmayan = katilan.toString()
+            kararsiz = katilan.toString()
+            $scope.data[0].data.push([element.OBaslik, katilan])
+            $scope.data[1].data.push([element.OBaslik, katilmayan])
+            $scope.data[2].data.push([element.OBaslik, kararsiz])
+  
+
+            sayac++;
+ 
+          })
+
         })
+
+        console.log($scope.data, "dataorj")
+
+        console.log($scope.data2, "data2")
+        if (callback) callback();
+        $.plot(self.element, $scope.data2, option);
+
+      }).error(function () {
+        $.error('Bad chart request.');
+      });
+    }
+
+      //   if(url=='ogretmen'){
+
+
+      // $http.post('http://localhost:55705/oraporcek', { OlusturanOgretmen: $scope.globals.UserName })
+      //   .then(function (response) {
+      //     $scope.data = [{
+      //       label: "Katilanlar",
+      //       color: "#51bff2",
+      //       data: [
+      //       ]
+      //     }, {
+
+      //       label: "Katilmayanlar",
+      //       color: "#4a8ef1",
+      //       data: [["Matematik Dersi", '2'], ['Atişlar', '1']
+      //       ]
+      //     },
+      //     {
+      //       label: "Kararsizlar",
+      //       color: "#d87a80",
+      //       data: [["Matematik Dersi", '1'], ['Atişlar', '1']
+      //       ]
+      //     }
+      //     ];
+
+      //     var gelen = response.data;
+      //     console.log(gelen)
+      //     let sayac = 0
+      //     gelen.forEach(element => {
+      //       console.log(element, "bu")
+      //       let katilan = 0, katilmayan = 0, kararsiz = 0;
+      //       $http.post('http://localhost:55705/roderscek', { ODersID: element.ODersID })
+      //         .then(function (response) {
+      //           var gelen2 = response.data;
+      //           console.log(gelen2)
+
+      //           for (let index = 0; index < gelen2.length; index++) {
+      //             console.log(gelen2[index], 'hello')
+      //             if (gelen2[index].KYoklama == '1') {
+      //               katilan++;
+      //             } else if (gelen2[index].KYoklama == '0')
+      //               katilmayan++;
+      //             else
+      //               kararsiz++;
+      //           }
+      //           console.log(katilan, katilmayan, kararsiz)
+
+      //           $scope.data[0].data.push(element.OBaslik, katilan)
+      //           $scope.data[1].data.push(element.OBaslik, katilmayan)
+      //           $scope.data[2].data.push(element.OBaslik, kararsiz)
+      //           //  console.log($scope.data)
+      //           $scope.data[0].data[1] = 3
+      //           // console.log($scope.data[1].data[1])
+
+      //           sayac++;
+
+      //         })
+
+      //     })
+
+      //})
+
+
+
+
+      // }
+
+      else if(url=='Aogretmen'){
+         
+    
+        $http
+        .post('http://localhost:55705/oraporcek', { OlusturanOgretmen: $scope.globals.UserName})
+            .then(function (response) {
+              $scope.data = [{
+                label:"ogretmen",
+                color:"#51bff2",
+                data:[["9/04/2019",'3'],['11/04/2019','3'],['16/04/2019','1']
+              ]
+              },{
+          
+                label:"malinayir",
+                color:"#4a8ef1",
+                data:[["9/04/2019",'0'],['11/04/2019','1'],['16/04/2019','2']
+              ]
+              },
+            ]
+      
+              var gelen = response.data;
+              console.log(gelen)
+              let sayac=0
+              gelen.forEach(element => {
+                console.log(element,"bu")
+                let katilan=0, katilmayan=0,kararsiz=0;
+                $http.post('http://localhost:55705/roderscek', { ODersID: element.ODersID})
+                .then(function (response) {
+                  var gelen2=response.data;
+                  console.log(gelen2)
+                 
+                  for (let index = 0; index < gelen2.length; index++) {
+                    console.log(gelen2[index],'hello')
+                    if(gelen2[index].KYoklama=='1'){
+                    katilan++;
+                    }else if (gelen2[index].KYoklama=='0')
+                    katilmayan++;
+                    else
+                    kararsiz++;
+                  }
+                  console.log(katilan,katilmayan,kararsiz)
+      
+                  $scope.data[0].data.push(element.OBaslik,katilan)
+                  $scope.data[1].data.push(element.OBaslik,katilmayan)
+                  $scope.data[2].data.push(element.OBaslik,kararsiz)
+                  console.log($scope.data)
+                  $scope.data[0].data[1] = 3
+                  console.log($scope.data[1].data[1])
+                  sayac++;
+                  
+                })
+            
+              })
+           
+          }).then(function(data){
+            console.log(data,"deneme")
+            console.log($scope.data[1].data[1],"aaaaaaaaa")
+             $.plot(self.element, $scope.data, option);
+          })
+          
+        }else if(url=='katilimogretmen'){
+         
+    
+          $http
+          .post('http://localhost:55705/oraporcek', { OlusturanOgretmen: $scope.globals.UserName})
+              .then(function (response) {
+                $scope.data = [{
+                  label:"Katilanlar",
+                  color:"#51bff2",
+                  data:[["Matematik Dersi",'3'],['Atişlar','3'],['d','3'],['deneme','0']
+                ]
+                },{
+            
+                  label:"Katilmayanlar",
+                  color:"#4a8ef1",
+                  data:[["Matematik Dersi",'1'],['Atişlar','1'],['d','0'],['deneme','0']
+                ]
+                },
+                {
+                  label:"Kararsizlar",
+                  color:"#d87a80",
+                  data:[["Matematik Dersi",'2'],['Atişlar','1'],['d','1'],['deneme','5']
+                ]
+                }
+              ];
         
-      }
+                var gelen = response.data;
+                console.log(gelen)
+                let sayac=0
+                gelen.forEach(element => {
+                  console.log(element,"bu")
+                  let katilan=0, katilmayan=0,kararsiz=0;
+                  $http.post('http://localhost:55705/roderscek', { ODersID: element.ODersID})
+                  .then(function (response) {
+                    var gelen2=response.data;
+                    console.log(gelen2)
+                   
+                    for (let index = 0; index < gelen2.length; index++) {
+                      console.log(gelen2[index],'hello')
+                      if(gelen2[index].KYoklama=='1'){
+                      katilan++;
+                      }else if (gelen2[index].KYoklama=='0')
+                      katilmayan++;
+                      else
+                      kararsiz++;
+                    }
+                  //  console.log(katilan,katilmayan,kararsiz)
+        
+                    $scope.data[0].data.push(element.OBaslik,katilan)
+                    $scope.data[1].data.push(element.OBaslik,katilmayan)
+                    $scope.data[2].data.push(element.OBaslik,kararsiz)
+                  //  console.log($scope.data)
+                    $scope.data[0].data[1] = 3
+                  //  console.log($scope.data[1].data[1])
+                    sayac++;
+                    
+                  })
+              
+                })
+             
+            }).then(function(data){
+              console.log(data,"deneme")
+              console.log($scope.data[1].data[1],"aaaaaaaaa")
+               $.plot(self.element, $scope.data, option);
+            })
+            
+          }
 
       return this; // chain-ability
 
@@ -3055,10 +3196,10 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$locatio
       console.log($user, "alla alla")
       if ($user.RoleID == 1) {
         var menuJson = 'server/admin.json'
-      
+
       } else if ($user.RoleID == 2) {
         var menuJson = 'server/ogretmen.json'
-      
+
       } else {
         var menuJson = 'server/ogrenci.json'
       }
@@ -5457,7 +5598,7 @@ App.factory('timee', function (timee) {
 
 
   return timee
-  
+
 
 });
 
